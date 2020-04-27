@@ -95,6 +95,13 @@ O   L
     'Oeste'
 """
 
+
+class Carro:
+    def __init__(self, direcao, motor):
+        self.direcao = direcao
+        self.motor = motor
+
+
 NORTE = 'Norte'
 SUL = 'Sul'
 LESTE = 'Leste'
