@@ -8,13 +8,19 @@ outras duas classes:
 
 O Motor terá a responsabilidade de controlar a velocidade. Ele oferece os
 seguintes atributos:
-1) Valor da direção com valores possíveis: Norte, Sul, Leste, Oeste.
+1) Atributo de dado velocidade
+2) Método acelerar, que deverá incrementar a velocidade de uma unidade
+3) Método frear que deverpa decrementar a velocidade em duas unidades
+
+A Direção terá a responsabilidade de controlar a direçao. Ela oferece os
+seguintes atributos:
+1) Valor de direção com valores possíveis: Norte, Sul, Leste, Oeste.
 2) Método girar_a_direita
 3) Método girar_a_esquerda
 
-   N
-O     L
-   S
+  N
+O   L
+  S
 
     Exemplo:
     >>> # Testando motor
@@ -46,6 +52,9 @@ O     L
     >>> direcao.girar_a_direita()
     >>> direcao.valor
     'Sul'
+    >>> direcao.girar_a_direita()
+    >>> direcao.valor
+    'Oeste'
     >>> direcao.girar_a_direita()
     >>> direcao.valor
     'Norte'
@@ -93,16 +102,21 @@ OESTE = 'Oeste'
 
 
 class Direcao:
-    rotacao_a_direita_dct = {NORTE: LESTE,
-                             LESTE: SUL,
-                             SUL: OESTE,
-                             OESTE: NORTE}
+    rotacao_a_direita_dct = {
+        NORTE: LESTE, LESTE: SUL, SUL: OESTE, OESTE: NORTE
+    }
+    rotacao_a_esquerda_dct = {
+        NORTE: OESTE, OESTE: SUL, SUL: LESTE, LESTE: NORTE
+    }
 
     def __init__(self):
         self.valor = NORTE
 
     def girar_a_direita(self):
         self.valor = self.rotacao_a_direita_dct[self.valor]
+
+    def girar_a_esquerda(self):
+        self.valor = self.rotacao_a_esquerda_dct[self.valor]
 
 
 class Motor:
