@@ -1,7 +1,7 @@
 class Pessoa:
     olhos = 2
 
-    def __init__(self, *filhos, nome=None, idade=47):
+    def __init__(self, *filhos, nome=None, idade=70):
         self.nome = nome
         self.idade = idade
         self.filhos = list(filhos)
@@ -22,12 +22,9 @@ class Homem(Pessoa):
     pass
 
 
-class Mutante(Pessoa):
-    olhos = 3
-
 if __name__ == '__main__':
-    adriano = Mutante(nome='Adriano')
-    sergio = Homem(adriano, nome='Sérgio')
+    adriano = Homem(nome='Adriano')
+    sergio = Homem(adriano, nome='Sergio')
     print(Pessoa.cumprimentar(sergio))
     print(id(sergio))
     print(sergio.cumprimentar())
@@ -41,7 +38,7 @@ if __name__ == '__main__':
     del sergio.olhos
     print(sergio.__dict__)
     print(adriano.__dict__)
-    Pessoa.olhos = 2
+    Pessoa.olhos = 3
     print(Pessoa.olhos)
     print(sergio.olhos)
     print(adriano.olhos)
@@ -51,6 +48,5 @@ if __name__ == '__main__':
     pessoa = Pessoa('Anonimo')
     print(isinstance(pessoa, Pessoa))
     print(isinstance(pessoa, Homem))
-    print(isinstance(adriano, Pessoa))
+    print((isinstance(adriano, Pessoa)))
     print(isinstance(adriano, Homem))
-    print(adriano.olhos)
