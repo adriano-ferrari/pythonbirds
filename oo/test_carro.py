@@ -1,5 +1,6 @@
 from unittest import TestCase
-from .carro import Motor
+from oo.carro import Motor
+
 
 class CarroTesteCase(TestCase):
     def test_velocidade_inicial(self):
