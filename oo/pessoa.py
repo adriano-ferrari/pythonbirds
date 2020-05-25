@@ -25,9 +25,10 @@ class Homem(Pessoa):
 class Mutante(Pessoa):
     olhos = 3
 
+
 if __name__ == '__main__':
     adriano = Mutante(nome='Adriano')
-    sergio = Homem(adriano, nome='Sérgio')
+    sergio = Pessoa(adriano, nome='Sérgio')
     print(Pessoa.cumprimentar(sergio))
     print(id(sergio))
     print(sergio.cumprimentar())
