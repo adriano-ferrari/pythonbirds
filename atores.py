@@ -139,6 +139,7 @@ class Passaro(Ator):
         if self.foi_lancado():
             delta_t = tempo - self._tempo_de_lancamento
             self._calcular_posicao_vertical(delta_t)
+            self._calcular_posicao_horizontal(delta_t)
         return super().calcular_posicao(tempo)
 
 
@@ -160,6 +161,12 @@ class Passaro(Ator):
         y_atual += self.velocidade_escalar * delta_t * math.sin(angulo_radiano)
         y_atual -= (GRAVIDADE * (delta_t ** 2)) / 2
         self.y = y_atual
+
+    def _calcular_posicao_horizontal(self, delta_t):
+        x_atual = self._x_inicial
+        angulo_radiano = math.radians(self._angulo_de_lancamento)
+        x_atual += self.velocidade_escalar * delta_t * math.cos(angulo_radiano)
+        self.x = x_atual
 
 
 class PassaroAmarelo(Passaro):
